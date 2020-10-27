@@ -47,7 +47,7 @@ function YoutubeForm() {
 
 	return (
 		<div>
-			<h1>Bienvenidos a YoutubeForm2!</h1>
+			<h1>¡Bienvenidos a YoutubeForm2!</h1>
 			<form onSubmit={formik.handleSubmit}>
 				<div className='form-control'>
 					<label htmlFor='name'>Name</label>
