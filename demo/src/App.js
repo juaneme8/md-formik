@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import YoutubeForm from './components/YoutubeForm';
+import YoutubeForm2 from './components/YoutubeForm2';
 
 function App() {
 	return (
-		<div className="app">
-			<YoutubeForm />
+		<div className='app'>
+			<YoutubeForm2 />
 		</div>
 	);
 }
