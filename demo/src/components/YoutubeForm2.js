@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 function YoutubeForm() {
@@ -13,40 +13,14 @@ function YoutubeForm() {
 		console.log('Form Data', values);
 	};
 
-	// const validate = values => {
-	// 	let errors = {};
-	// 	if (!values.name) {
-	// 		errors.name = 'Requerido';
-	// 	}
-	// 	if (!values.email) {
-	// 		errors.email = 'Requerido';
-	// 	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-	// 		errors.email = 'Formato inválido';
-	// 	}
-	// 	if (!values.channel) {
-	// 		errors.channel = 'Requerido';
-	// 	}
-
-	// 	return errors;
-	// };
-
 	const validationSchema = Yup.object({
 		name: Yup.string().required('Requerido'),
 		email: Yup.string().email('Formato Inválido').required('Requerido'),
 		channel: Yup.string().required('Requerido'),
 	});
 
-	const formik = useFormik({
-		initialValues,
-		onSubmit,
-		validationSchema,
-		// validate,
-	});
-
-	// console.log('Visited Fields', formik.touched);
-
 	return (
-		<div>
+		<Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
 			<h1>¡Bienvenidos a YoutubeForm2!</h1>
 			<form onSubmit={formik.handleSubmit}>
 				<div className='form-control'>
@@ -66,7 +40,7 @@ function YoutubeForm() {
 				</div>
 				<button type='submit'>Submit</button>
 			</form>
-		</div>
+		</Formik>
 	);
 }
 
