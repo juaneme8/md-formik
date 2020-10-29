@@ -46,8 +46,19 @@ function YoutubeForm() {
 						<ErrorMessage name='comments' />
 					</div>
 					<div className='form-control'>
-						<label htmlFor='address'>address</label>
-						<Field type='text' name='address' />
+						<label htmlFor='address'>Address</label>
+						<Field type='text' name='address'>
+							{props => {
+								const { field, form, meta } = props;
+								console.log('Render props:', props);
+								return (
+									<div>
+										<input type='text' id='address' {...field} />
+										{meta.touched && meta.error ? <div>{meta.error}</div> : null}
+									</div>
+								);
+							}}
+						</Field>
 					</div>
 
 					<button type='submit'>Submit</button>
