@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup';
+import TextError from './TextError';
 
 function YoutubeForm() {
 	const initialValues = {
@@ -27,6 +28,14 @@ function YoutubeForm() {
 		channel: Yup.string().required('Requerido'),
 	});
 
+	const validateComments = value => {
+		let error;
+		if (!value) {
+			error = 'Requerido';
+		}
+		return error;
+	};
+
 	return (
 		<>
 			<Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
@@ -51,14 +60,15 @@ function YoutubeForm() {
 						<ErrorMessage name='channel' />
 					</div>
 					<div className='form-control'>
-						<label htmlFor='comments'>Comments</label>
-						<Field as='textarea' id='comments' name='comments' />
-						<ErrorMessage name='comments' />
+						<label htmlFor='comments'>Comments!</label>
+						<Field as='textarea' id='comments' name='comments' validate={validateComments} />
+						<ErrorMessage name='comments' component={TextError} />
 					</div>
 					<div className='form-control'>
 						<label htmlFor='address'>Address</label>
 						<Field type='text' name='address'>
 							{props => {
+								// console.log('Field Rendered');
 								const { field, form, meta } = props;
 								// console.log('Render props:', props);
 								return (
@@ -98,7 +108,7 @@ function YoutubeForm() {
 								const { push, remove, form } = fieldArrayProps;
 								const { values } = form;
 								const { phNumbers } = values;
-
+								// console.log('form.errors', form.errors);
 								// console.log('fieldArrayProps:', fieldArrayProps);
 								return (
 									<div>
