@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import TextError from './TextError';
 
 const initialValues = {
-	name: '',
+	name: 'Ocho',
 	email: '',
 	channel: '',
 	comments: '',
@@ -38,6 +38,7 @@ const onSubmit = (values, onSubmitProps) => {
 	//(...)
 
 	onSubmitProps.setSubmitting(false);
+	onSubmitProps.resetForm();
 };
 
 const validationSchema = Yup.object({
@@ -180,6 +181,9 @@ function YoutubeForm() {
 							<button type='button' onClick={() => setFormValues(savedValues)}>
 								Load Saved Data
 							</button>
+
+							<button type='reset'>Reset</button>
+
 							<button type='submit' disabled={!formik.isValid || formik.isSubmitting}>
 								Submit
 							</button>
