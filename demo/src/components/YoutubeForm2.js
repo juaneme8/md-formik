@@ -5,10 +5,10 @@ import TextError from './TextError';
 
 function YoutubeForm() {
 	const initialValues = {
-		name: '',
-		email: '',
-		channel: '',
-		comments: '',
+		name: 'Juan',
+		email: 'a@a.com.ar',
+		channel: 'a',
+		comments: 'b',
 		address: '',
 		social: {
 			facebook: '',
@@ -156,7 +156,9 @@ function YoutubeForm() {
 							>
 								setTouched
 							</button>
-							<button type='submit'>Submit</button>
+							<button type='submit' disabled={!formik.dirty || !formik.isValid}>
+								Submit
+							</button>
 						</Form>
 					);
 				}}
