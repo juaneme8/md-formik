@@ -156,7 +156,7 @@ function YoutubeForm() {
 							>
 								setTouched
 							</button>
-							<button type='submit' disabled={!formik.dirty || !formik.isValid}>
+							<button type='submit' disabled={formik.isSubmitting}>
 								Submit
 							</button>
 						</Form>
