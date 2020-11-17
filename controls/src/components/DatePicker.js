@@ -7,7 +7,7 @@ import TextError from './TextError';
 function DatePicker({ label, name, ...rest }) {
 	return (
 		<div className='form-control'>
-			<label httpFor={name}>{label}</label>
+			<label htmlFor={name}>{label}</label>
 			<Field name={name}>
 				{({ form, field }) => {
 					const { setFieldValue } = form;
