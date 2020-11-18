@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import EnrollmentForm from './components/EnrollmentForm';
+import LoginForm from './components/LoginForm';
 
 function App() {
 	return (
 		<div className='App'>
-			<EnrollmentForm />
+			<LoginForm />
 		</div>
 	);
 }
