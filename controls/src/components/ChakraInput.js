@@ -8,7 +8,7 @@ function ChakraInput(props) {
 		<Field name={name}>
 			{({ field, form }) => {
 				return (
-					<FormControl isInvalid={form.erros[name] && form.touched[name]}>
+					<FormControl isInvalid={form.errors[name] && form.touched[name]}>
 						<FormLabel htmlFor={name}>{label}</FormLabel>
 						<Input id={name} {...rest} {...field} />
 						<FormErrorMessage>{form.errors[name]}</FormErrorMessage>
